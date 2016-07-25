@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>小型软件公司首页</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <link rel="stylesheet" type="text/css" href="css/company.css">
+	<script src="js/company.js"></script>
+	<script>
+			    	function drawAdidas(){
+			   			//创建文本对象
+			    		var c = document.getElementById("adidas");
+			    		//获取上下文渲染文本对象
+			    		var context = c.getContext("2d");
+			    		context.save();
+			    		context.beginPath();
+			    		//画线
+			    		context.moveTo(2,0);//起点
+			    		context.quadraticCurveTo(30,39,99,48);//第一条曲线
+			    		context.lineTo(60,2);//直线
+			    		context.lineTo(30,49);
+			    		context.fillStyle="red";//用红色填充
+			    		context.fill();
+			    		context.strokeStyle="white";//设置边框颜色
+			    		context.stroke();
+			    		context.lineJoin="round";//连接处平滑
+			    		context.restrore();//恢复原有绘图状态
+			    	}
+			    	window.addEventListener("load",drawAdidas,true);
+	  </script>
+  </head>
+  
+  <body>
+    <div id="container">
+    	<div id="top_container">
+	    	<div id="logo">
+				<canvas width="1300px" height="50px" id="adidas">不能显示canvas</canvas>
+	    	</div>
+	    	<div id="header">
+	    		<h1>计算机软件公司</h1>
+	    	</div>
+	    	<div id="meu">
+				<ul id="menu">
+					<li><a href="#">首页</a></li>
+					<li><a href="#">产品</a></li>
+					<li><a href="#">客户</a></li>
+					<li><a href="#">联系方式</a></li>
+				</ul>
+	    	</div>
+    	</div>
+    	<div id="context">
+    		<div id="text">
+    			<h2><a href="#">欢迎来到我们的网站</a></h2>
+    				
+    				<p><img src="images/company.jpg"/>本公司成立于1990年，注册资本1700万元。是国家认定的高薪技术企业，软件企业，是专业的电信系统仿软件和应用服务供应商 </p>					
+    				<p>公司坚持走独立创新、稳步发展的道路，以创立品牌为自己的基本策略，以产品自身的品质，先进的技术和良好的服务取信于用户。
+    				2002年至今公司先后有多个软件取得了山东省信息产业厅颁发的《软件产品登记证书》和国家版权局颁发的《软件著作权登记证书》。
+    				同时远大的进步和发展，也取得了政府部门的大力支持和关注，获得国家科技部和省、市政府部门技术创新基金无偿资助百万余元。
+    				并正式取得中国质量体系认证中心颁发的iso9001:2008质量管理体系认证证书。</p><p>公司坚持走独立创新、稳步发展的道路，以创立品牌为自己的基本策略，以产品自身的品质，先进的技术和良好的服务取信于用户。
+    				2002年至今公司先后有多个软件取得了山东省信息产业厅颁发的《软件产品登记证书》和国家版权局颁发的《软件著作权登记证书》。
+    				同时远大的进步和发展，也取得了政府部门的大力支持和关注，获得国家科技部和省、市政府部门技术创新基金无偿资助百万余元。
+    				并正式取得中国质量体系认证中心颁发的iso9001:2008质量管理体系认证证书。公司坚持走独立创新、稳步发展的道路，以创立品牌为自己的基本策略，以产品自身的品质，先进的技术和良好的服务取信于用户。
+    				2002年至今公司先后有多个软件取得了山东省信息产业厅颁发的《软件产品登记证书》和国家版权局颁发的《软件著作权登记证书》。
+    				同时远大的进步和发展，也取得了政府部门的大力支持和关注。</p>
+    				
+    				<br/>
+    				
+    		</div>
+    		<div id="conlum">
+    			<h3>最新消息</h3>
+    			<ul>
+    				<li><a href="#">公司组织员工青岛旅游</a></li>
+    				<li><a href="#">2016乒乓球大赛开始</a></li>
+    				<li><a href="#">公司总经理会见实习生</a></li>
+    				<li><a href="#">公司销售部门再传捷报</a></li>
+    			</ul>
+    			<h3>产品展示</h3>
+    			<ul>
+    				<li><a href="#">在线人员素质考核系统</a></li>
+    				<li><a href="#">线损计算机系统</a></li>
+    				<li><a href="#">质量运用管理系统</a></li>
+    			</ul>
+    			<h3>客户</h3>
+    			<ul>
+    				<li><a href="#">华中地区</a></li>
+    				<li><a href="#">华东地区</a></li>
+    				
+    			</ul>
+    		</div>
+    	</div>
+    	<div id="footer">
+    		<p><a href="#">网页设计者：薛海双</a></p>
+    	</div>
+    
+    
+    </div>
+  </body>
+</html>

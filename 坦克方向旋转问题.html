@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>坦克调换方向</title>
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<script language="javascript" type="text/javascript"> 
+	<!--
+		function direction(obj){
+			if(obj.value=="上"){
+				tank.style.backgroundPositionY="0px";
+			}else if(obj.value=="右"){
+				tank.style.backgroundPositionY="99px";
+			}else if(obj.value=="下"){
+				tank.style.backgroundPositionY="66px";
+			}else if(obj.value=="左"){
+				tank.style.backgroundPositionY="33px";
+			}
+		}
+	//-->
+	</script>
+  </head>
+  
+  <body>
+	  <div id="tank" 
+		style="background-position-y:33px; background-image:url('images/tank.jpg');width:33px;height:33px">
+	  </div><br/>
+	  <input type="button" value="上" onclick="direction(this)"/>
+	  <input type="button" value="右" onclick="direction(this)"/>
+	  <input type="button" value="下" onclick="direction(this)"/>
+	  <input type="button" value="左" onclick="direction(this)"/>
+    
+  </body>
+</html>

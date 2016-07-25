@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>水果总价计算.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+	<script type="text/javascript" language="javascript">
+	<!--
+		function shopping(){
+			var fruits=document.getElementsByName("fruit");
+			var totalValue=0;
+			for(var i=0;i<fruits.length;i++){
+				if(fruits[i].checked){
+					totalValue+=parseFloat(fruits[i].value);
+				}
+			}
+			document.getElementById("myspan").innerText=totalValue;
+		}
+	//-->
+	</script>
+  </head>
+  
+  <body>
+    <input type="checkbox" name="fruit" onclick="shopping()" value="30"/>西瓜  30元<br/>
+    <input type="checkbox" name="fruit" onclick="shopping()" value="50"/>苹果  50元<br/>
+    <input type="checkbox" name="fruit" onclick="shopping()" value="40"/>橙子  40元<br/>
+    <input type="checkbox" name="fruit" onclick="shopping()" value="60"/>梨子  60元<br/>
+  	  总价格是：<span id="myspan">0</span>元
+  </body>
+</html>

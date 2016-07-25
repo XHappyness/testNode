@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+ <head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+  <title>Document</title>
+  <style type="text/css">
+	*{margin:0; padding:0;}
+	table{width:700px;border-collapse:collapse;}
+	td{border:1px solid black;}
+  </style>
+  <script src="jquery-1.11.1.js"></script>
+  <script>
+	function changeColor(){
+		$("tr:not(:first):not(:last):odd").css({"background":"pink"});
+		$("tr:not(:first):not(:last):even").css({"background":"silver"});
+	}
+	function initial(){
+		changeColor();
+		//为增加按钮添加事件
+		$("input[value='增加']").click(function(){
+			//获取值
+			var bookName = $("#bookName").val();
+			var bookPrice = $("#bookPrice").val();
+			var bookStorage = $("#bookStorage").val();
+			var $modify = $($("input[value='修改']").get(0)).clone(true);
+			var $delete = $($("input[value='删除']").get(0)).clone(true);
+			//将值加入到4个td中
+			var $td1 = $("<td>"+bookName+"</td>");
+			var $td2 = $("<td>"+bookPrice+"</td>");
+			var $td3 = $("<td>"+bookStorage+"</td>");
+			var $td4 = $("<td></td>");
+			$td4.append($modify);
+			$td4.append($delete);
+			//把4个td加入到一个tr里
+			var $tr = $("<tr></tr>");
+			$tr.append($td1);
+			$tr.append($td2);
+			$tr.append($td3);
+			$tr.append($td4);
+			//把tr加到table得倒数第二行
+			$("tr:last").before($tr);
+			changeColor();
+			$("#bookName").val('');
+			$("#bookPrice").val('');
+			$("#bookStorage").val('');
+		});
+		//为删除按钮添加事件
+		$("input[value='删除']").click(function(){
+			$(this).parent().parent().remove();
+			changeColor();
+		});
+		//为修改按钮添加事件
+		$("input[value='修改']").click(function(){
+			if($(this).val()=='修改'){
+				$(this).val('确定');
+				var tds = $(this).parent().siblings();
+				for(var i=0; i<tds.length; i++){
+					$td = $(tds.get(i));
+					$td.html("<input value='"+$td.text()+"'/>")
+				}
+			}else{
+				$(this).val('修改');
+				var tds = $(this).parent().siblings();
+				for(var i=0; i<tds.length; i++){
+					$td = $(tds.get(i));
+					var $input = $($td.children()[0]);
+					$td.text($input.val());
+				}
+			}
+		});
+	}
+	window.onload = function(){
+		initial();
+	}
+  </script>
+ </head>
+ <body>
+	<table>
+		<tr>
+			<td>书名</td>
+			<td>价格</td>
+			<td>库存</td>
+			<td>操作</td>
+		</tr>
+		<tr>
+			<td>欢乐颂</td>
+			<td>20</td>
+			<td>200</td>
+			<td>
+				<input type="button" value="修改"/>
+				<input type="button" value="删除"/>
+			</td>
+		</tr>
+		<tr>
+			<td>花千骨</td>
+			<td>30</td>
+			<td>600</td>
+			<td>
+				<input type="button" value="修改"/>
+				<input type="button" value="删除"/>
+			</td>
+		</tr>
+		<tr>
+			<td><input id="bookName"/></td>
+			<td><input id="bookPrice"/></td>
+			<td><input id="bookStorage"/></td>
+			<td><input type="button" value="增加"/></td>
+		</tr>
+	</table>
+ </body>
+</html>

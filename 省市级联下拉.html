@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>省市级联下拉</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+  </head>
+  
+  <body>
+    <h2>省市级联下拉</h2>
+    <select id="provinces" onchange="changeCity(this.value)">
+    	<option value="-1">-请选择-</option>
+    </select>
+    <select id="cities" >
+    	<option value="-1">-请选择-</option>
+    </select>
+    <script>
+    	//为省市下拉列表添加内容
+    	var ps = ["山东省","江苏省","上海"];
+    	var cs = [
+    		["菏泽市","济宁市","济南市"],
+    		["南京市","无锡市","苏州市"],
+    		["徐汇区","浦东区"]
+    	];
+    	var fragment = document.createDocumentFragment();
+    	var provinces = document.getElementById("provinces");
+    	for(var i=0; i<ps.length; i++){
+    		var option = document.createElement("option");
+    		option.setAttribute("value",i);
+    		option.innerHTML = ps[i];
+    		fragment.appendChild(option);
+    	}
+    	provinces.appendChild(fragment);
+    	//根据不同省市显示不同城市
+    	function changeCity(value){
+    		if(value==-1){
+    			return;
+    		}
+    		//改变省市前先删除原来省份的城市
+    		var cities = document.getElementById("cities");
+    		while(cities.children.length>1){
+    			cities.removeChild(cities.lastElementChild);
+    		}
+    		
+    		//再添加当前省市的地级市城市
+    		var cityOfPrivince = cs[value];
+    		var fragment = document.createDocumentFragment();
+	    	for(var i=0; i<cityOfPrivince.length; i++){
+	    		var option = document.createElement("option");
+	    		option.setAttribute("value",i);
+	    		option.innerHTML = cityOfPrivince[i];
+	    		fragment.appendChild(option);
+	    	}
+	    	cities.appendChild(fragment);
+    	}
+    </script>
+  </body>
+</html>

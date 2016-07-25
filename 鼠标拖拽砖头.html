@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>鼠标拖拽砖头.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+	<style type="text/css">
+		#zt{
+			width:120px;
+			height:60px;
+			background-color:#a99911;
+			position:fixed;
+		}
+	</style>
+  </head>
+  
+  <body>
+    <div id="zt"></div>
+  </body>
+  <script>
+  	var zt = document.getElementById("zt");
+  	var pressed = false;
+  	var offsetX = 0;
+  	var offsetY = 0;
+  	zt.onmousedown = function(event){
+  		pressed = true;
+  		this.style.cursor = 'move';
+  		offsetX = event.offsetX;
+  		offsetY = event.offsetY;
+  	}
+  	
+  	zt.onmouseup = function(){
+  		pressed = false;
+		this.style.cursor = 'default';
+	}
+	zt.onmousemove = function(evevt){
+		if(!pressed){
+			return;
+		}
+  		zt.style.left = (event.clientX-offsetX)+"px";
+  		zt.style.top = (event.clientY-offsetY)+"px";
+  	}
+  </script>
+</html>

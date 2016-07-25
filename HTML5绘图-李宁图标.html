@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HTML5绘图-李宁图标</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+  </head>
+  
+  <body>
+    <canvas id="adidas" width="375px" height="132px" style="border:1px solid #000;"></canvas>
+    <script>
+    	function drawAdidas(){
+   			//创建文本对象
+    		var c = document.getElementById("adidas");
+    		//获取上下文渲染文本对象
+    		var context = c.getContext("2d");
+    		context.save();
+    		context.beginPath();
+    		//画线
+    		context.moveTo(53,0);//起点
+    		context.quadraticCurveTo(30,79,99,78);//第一条曲线
+    		context.lineTo(374,2);//直线
+    		context.lineTo(74,131);
+    		context.quadraticCurveTo(-55,124,53,0);
+    		context.fillStyle="#da251c";//用红色填充
+    		context.fill();
+    		context.strokeStyle="#d40000";//设置边框颜色
+    		context.stroke();
+    		context.lineJoin="round";//连接处平滑
+    		context.restrore();//恢复原有绘图状态
+    	}
+    	window.addEventListener("load",drawAdidas,true);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+  <title></title>
+  <link rel="stylesheet" href="formValidator/style/validator.css" />
+  <script src="jquery-1.11.1.js"></script>
+  <script src="formValidator/formValidator_min.js"></script>
+  <script src="formValidator/formValidatorRegex.js"></script>
+  <script>
+	$(document).ready(function(){
+		$.formValidator.initConfig();
+		$("#useName").formValidator({
+			onempty:"您输入的内容为空",
+			onshow:"请输入6-18为的用户名称",
+			onfocus:"名称有数字、英文字母、下划线组成",
+			oncorrect:"用户名称输入正确"
+		}).InputValidator({
+			type:"size",
+			min:"6",
+			max:18,
+			onerror:"用户名称必须是6-18位!"
+		});
+		$("#usePwd").formValidator({
+			onempty:"您输入的密码为空",
+			onshow:"请输入6-12位的密码",
+			onfocus:"密码有数字、英文字母、下划线组成",
+			oncorrect:"密码正确"
+		}).InputValidator({
+			type:"size",
+			min:"6",
+			max:12,
+			onerror:"用户密码必须是6-12位!"
+		});
+		$("#usePwd2").formValidator({
+			onempty:"您输入的密码为空",
+			onshow:"请确认您的密码",
+			onfocus:"请确认您的密码6-12",
+			oncorrect:"密码正确"
+		}).CompareValidator({
+			desID:"usePwd",
+			onerror:"两次输入密码不一致"
+		});
+		$("#frmSubmit").submit(function(){
+			return $.formValidator.PageIsValid();
+		});
+	});
+
+
+  </script>
+ </head>
+
+ <body>
+  <form id="user" method="get">
+	<table>
+		<tr>
+			<td>用户名称：</td>
+			<td>
+				<input type="text" name="useName" id="useName"/>
+			</td>
+			<td>
+				<div id="useNameTip"></div>
+			</td>
+		</tr>
+		<tr>
+			<td>用户密码：</td>
+			<td>
+				<input type="password" name="usePwd" id="usePwd"/>
+			</td>
+			<td>
+				<div id="usePwdTip"></div>
+			</td>
+		</tr>
+		<tr>
+			<td>确认密码：</td>
+			<td>
+				<input type="password" name="usePwd2" id="usePwd2"/>
+			</td>
+			<td>
+				<div id="usePwd2Tip"></div>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3">
+				<input type="submit" value="提交" id="frmSubmit"/>
+			</td>
+		</tr>
+	</table>
+  </form>
+ </body>
+</html>

@@ -1,0 +1,128 @@
+*{
+	margin:0;
+	padding:0;	
+}
+#container{
+	margin:0 auto;
+	width:1300px;
+	/* background-color:pink; */
+	position:relative;	
+}
+#top_container{
+	width:1300px;
+	height:160px;
+	background:transparent url("../images/company_background.jpg") no-repeat;
+	background-size:1300px 160px;
+	position:relative;
+}
+#logo{
+	heigth:50px;
+}
+#header{
+	height:60px;
+	font-size:20px;
+	font-weight:bold;
+	color:white;
+	margin-top:10px;
+}
+#meu{
+	height:50px;	
+}
+#menu{
+	position:absolute;
+	left:15px;
+	bottom:0px;
+}
+
+#menu li{
+	list-style-type:none;
+	float:left;
+	text-align:center;
+	font-size:20px;
+	font-weight:bold;
+	margin-left:3px;
+}
+#menu a{
+	display:block;
+	width:120px;
+	border-radius:5px 5px 0 0;
+	color:white;
+	background-color:gray;
+	text-decoration:none;
+}
+#menu a:hover{
+	color:black;
+	background-color:white;
+	text-decoration:none;
+}
+
+#context{
+	width:1300px;
+	height:600px;
+	/* background-color:green; */
+}
+
+#text{
+	width:1000px;
+	height:600px;
+	/* background-color:yellow; */
+	border-radius:0 0 8px 8px;
+	float:left;
+}
+#text img{
+	width:400px;
+	height:450px;
+	float:right;
+	padding-right:15px;
+}
+#text h2{
+	margin-left:15px;	
+	padding-top:15px;
+}
+#text p{
+	font-size:20px;
+	margin:15px 15px;
+	text-indent:2em;
+}
+#conlum{
+	width:300px;
+	height:600px;
+	background-color:#1F7E9A;
+	float:left;
+}
+#conlum h3{
+	background-color:#BFBCBC;
+	width:150px;
+	position:relative;
+	left:-8px;
+	border-radius:6px;
+	text-align:center;
+	color:white;
+	padding:3px 1px;
+	margin:10px 6px 2px 2px;
+}
+#conlum li{
+	padding:4px;
+	margin-left:30px;
+	color:#DFDFDF;
+}
+#conlum a{
+	color:#DFDFDF;
+}
+#conlum a:hover{
+	color:#E08989;
+}
+#footer{
+	width:1300px;
+	height:30px;
+	background-color:#3D9CB8;
+	text-align:center;
+	position:relative;	
+}
+#footer a{
+	color:#DFDFDF;
+	font-size:18px;
+	position:absolute;
+	bottom:0;
+	right:2px;
+}

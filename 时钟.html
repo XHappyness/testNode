@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>时钟.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+	<style type="text/css">
+		*{
+			margin:0;
+			padding:0;
+		}
+		/* 指针走表的样式 */
+		#clock{
+			margin:10px auto;
+			width:300px;
+			height:300px;
+			border:1px solid gray;
+			border-radius:50%;
+			position:relative;
+		}
+		.p{
+			position:absolute;
+			left:150px;
+			transform-origin:left center;
+		}
+		.hour{
+			width:60px;
+			height:10px;
+			background-color:#faa;
+			top:145px;			
+		}
+		.minute{
+			width:120px;
+			height:8px;
+			background-color:#aaf;
+			top:146px;			
+		}
+		.second{
+			width:150px;
+			height:4px;
+			background-color:#afa;
+			top:148px;			
+		}
+		
+		/* 数字表及计时器样式 */
+		.container{
+			width:290px;
+			margin:0 auto;
+			text-align:center;
+			font:30px "黑体";
+			background-color:pink;
+			border:1px solid #aaa;
+			border-radius:20px;
+			padding:10px;
+		}
+		h3{
+			font:15px "宋体";
+			color:green;
+		}
+		button{
+			border-radius:20px;
+		}
+	</style>
+  </head>
+  
+  <body>
+    <div id="clock">
+    	<div class="p hour"></div>
+    	<div class="p minute"></div>
+    	<div class="p second"></div>
+    </div>
+    <br/>
+    
+    <div class="container">
+    	<h3>可暂停时钟:</h3>
+   		<div class="milliClock"></div>
+	    <button onclick="startClock()">启动时钟</button>
+	    <button onclick="pauseClock()">暂停时钟</button>
+   		<br/>
+   		<br/>
+   		<h3>计时器:</h3>
+    	<div class="counterClock">00:00:00</div>
+	    <button onclick="startCounter()">开始计时</button>
+	    <button onclick="stopCounter()">结束计时</button>
+    <div>
+    <script>
+    	//绘制指针走表
+    	function drawClock(){
+	    	var now = new Date();
+	    	var h = now.getHours()%12;
+	    	var m = now.getMinutes();
+	    	var s = now.getSeconds();
+	    	var hour = document.getElementsByClassName("hour")[0];
+	    	hour.style.transform="rotate("+(30*h-90)+"deg)";
+	    	var minute = document.getElementsByClassName("minute")[0];
+	    	minute.style.transform="rotate("+(6*m-90)+"deg)";
+	    	var second = document.getElementsByClassName("second")[0];
+	    	second.style.transform="rotate("+(6*s-90)+"deg)";
+    	}
+    	drawClock();
+		window.setInterval(drawClock,1000);
+		
+		//数字表
+		function drawMilliClock(){
+			var now = new Date();
+	    	var h = now.getHours();
+	    	var m = now.getMinutes();
+	    	var s = now.getSeconds();
+			m = m<10? "0"+m:m;
+	    	s = s<10? "0"+s:s;
+	    	document.getElementsByClassName("milliClock")[0].innerHTML = h+":"+m+":"+s;
+		}
+		drawMilliClock();
+		var time1 = null;
+		function startClock(){
+			time1 = setInterval(drawMilliClock,1000);
+		}
+		function pauseClock(){
+			if(time1){
+				clearInterval(time1);
+			}
+		}
+		
+		
+		//计时器，每十毫秒计数一次，counter以十毫秒为单位
+		var counter = 0;
+		function drawCounterClock(){
+			counter++;
+			var m = parseInt(counter/6000);//分位数
+			m = m<10?"0"+m:m;
+			var s = parseInt((counter/100)%60);//秒位数
+			s = s<10?"0"+s:s;
+			var milli = parseInt(counter%100);//十倍毫秒位数
+			milli = milli<10?"0"+milli:milli;
+			document.getElementsByClassName("counterClock")[0].innerHTML = m+":"+s+":"+milli;
+			
+		}
+		var time2 = null;
+		function startCounter(){
+			if(!time2){
+				time2=setInterval(drawCounterClock,10);
+			}
+			
+		}
+		function stopCounter(){
+			if(time2){
+				clearInterval(time2);
+				time2 = null;
+			}
+		}
+    </script>
+  </body>
+</html>

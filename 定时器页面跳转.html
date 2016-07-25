@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>定时器页面跳转</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+	<style type="text/css">
+		#ctn{
+			font-size:25px;
+			color:red;		
+		}
+	</style>
+  </head>
+  
+  <body>
+    <h2>登录成功</h2>
+    <h3>页面将在<span id="ctn">5</span>秒钟之后跳转到指定页面.....</h3>
+    <script>
+    	var counter=5;
+    	var time = null;
+    	function jump(){
+    		if(counter>1){
+	    		counter--;
+	    		document.getElementById("ctn").innerHTML = counter;
+	    	}else{
+	    		clearInterval(time);
+	    		location.href="时钟.html";
+	    	}
+    		
+    	}
+    	time = setInterval(jump,1000);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>在线选择菜单</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+	<style>
+		select{
+			width:100px;
+		}
+	</style>
+  </head>
+  
+  <body>
+    <select id="allDish" multiple="true" size="8">
+    	<option value="-1">-请点菜-</option>
+    </select>
+    <select id="selectedDish" multiple="true" size="8">
+    	<option value="-1">-已点菜-</option>
+    </select>
+    <script>
+    	var arr = ["红烧肉","蒜蓉虾","地锅鸡","酸菜鱼"];
+    	var fragment = document.createDocumentFragment();
+    	for(var i=0; i<arr.length; i++){
+    		var option = document.createElement("option");
+    		option.setAttribute("value",i);
+    		option.setAttribute("ondblclick","removeDish(this)");
+    		option.innerHTML=arr[i];
+    		fragment.appendChild(option);
+    	}
+    	var menu = document.getElementById("allDish");
+    	menu.appendChild(fragment);
+    	var order = document.getElementById("selectedDish");
+    	function removeDish(option){
+    		option.setAttribute("ondblclick","removeOrder(this)");
+    		order.appendChild(option);
+    		menu.removeElementChild(option);
+    	}
+    	function removeOrder(option){
+    		option.setAttribute("ondblclick","removeDish(this)");
+    		menu.appendChild(option);
+    		order.removeElementChild(option);
+    	}
+    </script>
+  </body>
+</html>

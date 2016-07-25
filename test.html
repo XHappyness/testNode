@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>test.html</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+   <link rel="stylesheet" type="text/css" href="css/test.css">
+	
+  </head>
+  
+  <body>
+  	<div id="container">
+	  	<div id="set10" onclick="show(3)">10元套餐</div>
+	  	<div id="set20" onclick="show(4)">20元套餐</div>
+	  	<div id="set30" onclick="show(5)">30元套餐</div>
+	  	<div id="set10Detailed" class="showfirst">套餐详情，每月免费100分钟电话，超出部分0.2毛/分；</div>
+	  	<div id="set20Detailed">套餐详情，每月免费200分钟电话，超出部分0.2毛/分；</div>
+	  	<div id="set30Detailed">套餐详情，每月免费300分钟电话，超出部分0.2毛/分；</div>
+	  </div>
+	<script>
+	
+		var showIndex = 3;
+		function show(num){
+			if(num==0){
+				var container = document.getElementById("container");
+				var divList = container.getElementsByTagName("div");
+				divList[showIndex].removeAttribute("class");
+				var classNode = document.creatAttibute("class");
+				classNode.nodeValue="showfirst";
+				divList[num].setAttibuteNode(classNode);
+				showIndex = num;
+			}
+		}
+	</script>
+      
+  </body>
+</html>
